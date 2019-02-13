@@ -11,10 +11,18 @@ class SearchBar extends React.Component {
         this.setState({term: event.target.value});
     }
 
+    onFormSubmit(event){
+        // not let the form submit itself and refresh the page
+        // keep the browser from submitting the form automatically
+        event.preventDefault();
+        console.log(this.state);
+        this.props.onSubmit(this.state.term);
+    }
+
     render() {
         return (
             <div className="ui segment">
-                <form className="ui form">
+                <form onSubmit={(event) => this.onFormSubmit(event)} className="ui form">
                     <div className="field">
                         <label>Image search</label>
                         <input type="text"
@@ -25,5 +33,6 @@ class SearchBar extends React.Component {
             </div>
         );
     }
-};
+}
+
 export default SearchBar;
