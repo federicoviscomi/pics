@@ -2,13 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
 import axios from "axios";
-
-const unsplash =  axios.create({
-    baseURL: 'https://api.unsplash.com',
-    headers: {
-        Authorization: 'Client-ID 9cfe0e0d766c4763b36a59dd0365e755a12e42792de9dd5a6214875c59e6da92'
-    }
-});
+import unsplas from '../api/unsplash';
 
 class App extends React.Component {
     constructor(props){
